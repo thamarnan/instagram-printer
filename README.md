@@ -19,10 +19,62 @@ if it found the matched. It will printout to the printer replicating instagram o
 
 | default_theme     |
 | ---      |
-| ![](https://github.com/thamarnan/instagram-printer/blob/master/images/default_theme.jpg?raw=true =300x450) |
+| ![](https://github.com/thamarnan/instagram-printer/blob/master/images/default_theme.jpg?raw=true) |
 
 # Requirements
+What you will need are:
+1. python 2.7 setup on computer
+2. your instagram access token. You can follow [this](https://elfsight.com/blog/2016/05/how-to-get-instagram-access-token/ "this") instruction to get token
+
+3. Update new token on the python code (printme.py)
+
+````python
+
+hashtag='kitty'
+igurl = 'https://api.instagram.com/v1/tags/'+hashtag+'/media/recent?access_token=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+
+````
+Next step Set hashtag
+
+Then Set Printer name (default_theme.cmd) last line
+
+`rundll32    shimgvw.dll    ImageView_PrintTo /pt   %OUTPUT%.bmp  "Canon IP4500"`
+
+and finally Run python printme.py
 
 # Customization
+| Customize Work Flow     |
+| ---      |
+| ![](https://github.com/thamarnan/instagram-printer/blob/master/images/printme_diagram.jpg?raw=true) |
+
+When hashtag found in the image.
+We can set the custom theme so that the picture print out in different template with secondary hashtag. For example,
+
+I'm looking to print the hashtag "cat"
+but if there is a secondary hashtag called "kitty"
+
+I want to use hellokitty theme template.
+
+To do this follow the step here:
+1. new theme has prefix with the word 'theme' eg themekitty
+2. create themekitty.cmd (example in this repository)
+3. create folder call themekitty
+4. set new background in the template_whitebackground.bmp
+
+| themekitty     |
+| ---      |
+| ![](https://github.com/thamarnan/instagram-printer/blob/master/images/themekitty.jpg?raw=true) |
+
+also included blank polariod theme in the example
+
+| themepolaroid     |
+| ---      |
+| ![](https://github.com/thamarnan/instagram-printer/blob/master/images/themepolaroid.jpg?raw=true) |
+
+Then virtually we have no limit on the variety
+and have more fun with different pre define template
 
 # Notes
+Please check any update on instagram api on
+https://www.instagram.com/developer/
+
