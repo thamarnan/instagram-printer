@@ -64,4 +64,4 @@ DEL *.mpc
 DEL *.txt
 DEL *.cap
 
-default_print.cmd %OUTPUT%.bmp
+rundll32    shimgvw.dll    ImageView_PrintTo /pt   %OUTPUT%.bmp  "Canon IP4500"
