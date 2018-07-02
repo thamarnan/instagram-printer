@@ -28,10 +28,13 @@ SET convertEXE="imagemagick\convert.exe"
 :: ========== Insert Top Right Corner Timestamp
 %convertEXE% "%OUTPUT%.mpc" -fill %DATECOLOR% -undercolor none -pointsize 19 -gravity northeast -annotate +30+30 %CREATEDTIME% "%OUTPUT%.bmp"
 
+:: Removed all images
 DEL *.png
 DEL *.jpg
 DEL *.cache
 DEL *.mpc
 DEL *.txt
 DEL *.cap
+
+
 rundll32    shimgvw.dll    ImageView_PrintTo /pt   %OUTPUT%.bmp  "Canon IP4500"
