@@ -47,7 +47,7 @@ def difference_super(a,b):
 	newset = []
 	first_set = set(map(tuple, a))
 	second_set= set(map(tuple, b))
-#	print len(list(first_set))
+
 	for i in range(len(list(first_set))):
 		dup_in_second=0
 		for j in range(len(list(second_set))):
@@ -96,18 +96,18 @@ while infinite == 1:
 
 	info = json.load(response)
 	
-	main_list = []	
+	main_list  = []	
 	image_urls = []
-	username = []
-	mediatype = []
-	full_name = []
+	username   = []
+	mediatype  = []
+	full_name  = []
 	profile_picture = []
-	location = []
+	location     = []
 	created_time = []
-	likescount = []
-	captiontext = []
-	commenttext = []
-	utf8string=""
+	likescount   = []
+	captiontext  = []
+	commenttext  = []
+	utf8string   =" "
 
 	for post in info['data']:
 		image_urls.append(post["images"]["standard_resolution"]["url"])
@@ -153,36 +153,24 @@ while infinite == 1:
 		sublist.append(username[eachOne])			#0
 		sublist.append(mediatype[eachOne])			#1
 		sublist.append(image_urls[eachOne])			#2
-		sublist.append(profile_picture[eachOne])	#3
-		sublist.append(created_time[eachOne])		#4
+		sublist.append(profile_picture[eachOne])		#3
+		sublist.append(created_time[eachOne])			#4
 		sublist.append(location[eachOne])			#5
 		sublist.append(likescount[eachOne])			#6
-		sublist.append(captiontext[eachOne])		#7
-		sublist.append(commenttext[eachOne])		#8
+		sublist.append(captiontext[eachOne])			#7
+		sublist.append(commenttext[eachOne])			#8
 		main_list.append(sublist)
 
-	
-##        for eachOne in range(len(username)):
-##		print (main_list[eachOne],before_main_list[eachOne])
-
-#	print "--diff:---"
-#	print main_list		
-#	print main_list
 #	print "======"
-#	print before_main_list
 
 	if firstwhile == 1:
 		before_main_list = main_list
 
 	
-
 	list_diff=difference_super(main_list,before_main_list)
 	before_main_list=main_list
-#	print "list_diff"
-#	print list_diff
 
 #	print len(list_diff)
-	#check len if greater than 0 then printout
 	if len(list_diff) > 0 and firstwhile == 0:
 		print "Incoming Feed for:"+str(len(list_diff)) 
 		for eachOne in range(len(list_diff)):
@@ -192,9 +180,7 @@ while infinite == 1:
 #			print ("Caption"+(list_diff[eachOne][7]))
 #			print ("Created:",datetime.datetime.fromtimestamp(int(list_diff[eachOne][4])))
 #			print str(list_diff[eachOne][5])
-
-			
-
+		
 			try:		
 				filename_profile=downloadJpg(list_diff[eachOne][3])
 				filename_main=downloadJpg(list_diff[eachOne][2])
@@ -248,10 +234,7 @@ while infinite == 1:
 				print "* Error Getting Images: Photo has been deleted or permission denied"
 	else:
 		print ".zzZ"
-
-
- 
- 
+	
 	print "-----------------------------------------------"
 
 	time_now = datetime.datetime.now()
